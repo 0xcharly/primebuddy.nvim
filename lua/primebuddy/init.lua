@@ -1,4 +1,6 @@
-local scale, theme, _ = require("palette")
+local palette = require("primebuddy.palette")
+local scale = palette.scale
+local theme = palette.theme
 
 -- vim.cmd [[ hi clear ]]
 -- vim.cmd [[ syntax reset ]]
@@ -183,15 +185,15 @@ Group.new("Comment", c.syntaxComment, nil, s.italic) -- any comment
 Group.new("Constant", c.syntaxConstant) -- (preferred) any constant
 Group.new("String", c.syntaxString) -- a string constant: "this is a string"
 Group.new("Character", c.syntaxVariable) --  a character constant: 'c', '\n'
--- Group.link('Number', g.Character) -- a number constant: 234, 0xff
+Group.new("Number", c.syntaxLiteral) -- a number constant: 234, 0xff
 -- Group.link('Boolean', g.Character) -- a boolean constant: TRUE, false
 -- Group.link('Float', g.Character) -- a floating point constant: 2.3e10
 
 Group.new("Identifier", c.syntaxVariable) -- (preferred) any variable name
 Group.new("Function", c.syntaxFunction) -- function name (also: methods for classes)
 Group.new("Statement", c.syntaxKeyword) --  (preferred) any statement
--- Group.link('Conditional', g.Statement) -- if, then, else, endif, switch, etc.
--- Group.link('Repeat', g.Statement) -- for, do, while, etc.
+Group.link("Conditional", g.Statement) -- if, then, else, endif, switch, etc.
+Group.link("Repeat", g.Statement) -- for, do, while, etc.
 -- Group.link('Label', g.Statement) -- case, default, etc.
 Group.new("Operator", c.syntaxKeyword) -- "sizeof", "+", "*", etc.
 Group.new("Keyword", c.syntaxKeyword, nil, s.italic) --  any other keyword
@@ -477,3 +479,66 @@ Group.new("DevIconTs", c.devIconTypescript)
 Group.new("DevIconXml", c.devIconXml)
 Group.new("DevIconYaml", c.devIconYml)
 Group.new("DevIconYml", c.devIconYml)
+
+-- Hidden buffers ("BufferLine*"): buffers that are not visible, eg. in a different tab.
+-- Visible buffers ("BufferLine*Visible"): buffers that are displayed, but not focused (ie. not currently edited)
+-- Active buffer ("BufferLine*Selected"): the visible buffer that is currently being edited.
+
+Group.new("BufferLineFill", nil, c.canvas) -- The buffer line background.
+Group.new("BufferLineSeparator", c.canvas, c.pmenuBg) -- Slant character for non-visible buffers.
+Group.new("BufferLineSeparatorVisible", c.canvas, c.roleNeutral) -- Slant character of visible buffers.
+Group.new("BufferLineSeparatorSelected", c.canvas, c.roleNeutral) -- Slant character of active buffer.
+Group.new("BufferLineBackground", c.fgOnCanvasMuted, c.pmenuBg) -- Hidden tabs content fg and bg.
+Group.new("BufferLineBufferVisible", c.canvas, c.roleNeutral) -- Visible tabs content fg and bg.
+Group.new("BufferLineBufferSelected", c.canvas, c.roleNeutral, s.bold) -- Active tabs content fg and bg.
+Group.new("BufferLineModified", c.fgOnCanvasMuted, c.pmenuBg) -- Hidden buffers "dirty" indicator.
+Group.new("BufferLineModifiedVisible", c.canvas, c.roleNeutral) -- Visible buffers "dirty" indicator.
+Group.new("BufferLineModifiedSelected", c.canvas, c.roleNeutral) -- Active buffer "dirty" indicator.
+Group.new("BufferLineTab", c.fgOnCanvasMuted, c.pmenuBg) -- Hidden tabs number.
+Group.new("BufferLineTabSelected", c.canvas, c.roleNeutral, s.bold) -- Active tab number.
+Group.new("BufferLineDuplicate", c.fgOnCanvasMuted, c.pmenuBg) -- Path disambiguator in hidden tabs.
+Group.new("BufferLineDuplicateVisible", c.roleNeutralBg, c.roleNeutral) -- Path disambiguator in active tabs.
+Group.new("BufferLineDuplicateSelected", c.roleNeutralBg, c.roleNeutral) -- Path disambiguator in visible tabs.
+
+-- BufferLineBuffer
+-- BufferLineCloseButton
+-- BufferLineCloseButtonSelected
+-- BufferLineCloseButtonVisible
+-- BufferLineDiagnostic
+-- BufferLineDiagnosticSelected
+-- BufferLineDiagnosticVisible
+-- BufferLineError
+-- BufferLineErrorDiagnostic
+-- BufferLineErrorDiagnosticSelected
+-- BufferLineErrorDiagnosticVisible
+-- BufferLineErrorSelected
+-- BufferLineErrorVisible
+-- BufferLineGroupLabel
+-- BufferLineGroupSeparator
+-- BufferLineHint
+-- BufferLineHintDiagnostic
+-- BufferLineHintDiagnosticSelected
+-- BufferLineHintDiagnosticVisible
+-- BufferLineHintSelected
+-- BufferLineHintVisible
+-- BufferLineIndicatorSelected
+-- BufferLineIndicatorVisible
+-- BufferLineInfo
+-- BufferLineInfoDiagnostic
+-- BufferLineInfoDiagnosticSelected
+-- BufferLineInfoDiagnosticVisible
+-- BufferLineInfoSelected
+-- BufferLineInfoVisible
+-- BufferLineNumbers
+-- BufferLineNumbersSelected
+-- BufferLineNumbersVisible
+-- BufferLinePick
+-- BufferLinePickSelected
+-- BufferLinePickVisible
+-- BufferLineTabClose
+-- BufferLineWarning
+-- BufferLineWarningDiagnostic
+-- BufferLineWarningDiagnosticSelected
+-- BufferLineWarningDiagnosticVisible
+-- BufferLineWarningSelected
+-- BufferLineWarningVisible

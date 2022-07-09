@@ -165,7 +165,7 @@ M.from_scale = function(scale)
 		theme[key] = value
 	end
 
-	return theme, util
+	return theme
 end
 
 return M
