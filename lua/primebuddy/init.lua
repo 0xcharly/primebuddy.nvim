@@ -148,7 +148,7 @@ Group.new("Normal", c.fgOnCanvas, c.canvas) -- normal text
 Group.new("NormalNC", c.fg, c.canvas) -- normal text in non-current windows
 Group.new("NormalSB", c.fg, c.canvas) -- normal text in non-current windows
 Group.new("NormalFloat", c.fg, c.pmenuBg) -- Normal text in floating windows.
-Group.new("FloatBorder", c.pmenuBorder, c.pmenuBg)
+Group.new("FloatBorder", c.pmenuBorder, c.canvas)
 Group.new("FloatShadow", nil, c.canvas)
 Group.new("FloatShadowThrough", nil, c.canvas)
 Group.new("Pmenu", c.fg, c.pmenuBg) -- Popup menu: normal item.
