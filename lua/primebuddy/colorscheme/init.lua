@@ -160,7 +160,7 @@ M.from_scale = function(scale)
 			modification = { fg = theme.attention.onCanvas, border = theme.border.subtle },
 			deletion = { fg = theme.danger.onCanvas, border = theme.border.subtle },
 		},
-		searchKeyword = { hl = util.alpha(scale.yellow.shade3, 0.4) },
+		searchKeyword = { hl = util.alpha(scale.blue.shade3, 0.4) },
 	}) do
 		theme[key] = value
 	end
